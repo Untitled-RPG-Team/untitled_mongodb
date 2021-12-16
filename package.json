@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Untitled-RPG-Team/untitled_mongodb/issues"
   },
-  "homepage": "https://github.com/Untitled-RPG-Team/untitled_mongodb#readme"
+  "homepage": "https://github.com/Untitled-RPG-Team/untitled_mongodb#readme",
+  "dependencies": {
+    "mongoose": "^6.1.2"
+  }
 }

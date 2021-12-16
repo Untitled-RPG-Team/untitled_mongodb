@@ -17,8 +17,6 @@ services:
     environment:
       MONGO_ROOT_PASSWORD: root
       MONGO_DATABASE: database
-    volumes:
-      - "./data/init:/docker-entrypoint-initdb.d"
     networks:
       - untitled-net
   mongo-express:
