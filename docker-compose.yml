@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  testing-lib:
+    container_name: "testing-lib"
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - mongo
+    networks:
+      - untitled-net
+  mongo:
+    container_name: "mongodb"
+    image: mongo:5.0.3
+    ports:
+      - "27015:27015"
+    environment:
+      MONGO_ROOT_PASSWORD: root
+      MONGO_DATABASE: database
+    volumes:
+      - "./data/init:/docker-entrypoint-initdb.d"
+    networks:
+      - untitled-net
+  mongo-express:
+    container_name: "mongo-express"
+    image: mongo-express:0.54
+    ports:
+      - "8080:8080"
+    environment:
+      PMA_HOST: mongo
+    depends_on:
+      - mongo
+    networks:
+      - untitled-net
+volumes:
+  data:
+networks:
+  untitled-net:
